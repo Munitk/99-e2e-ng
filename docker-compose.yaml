@@ -15,3 +15,21 @@ services:
       - db:/var/lib/mysql
 volumes:
   db:
+
+  node_app:
+    depends_on:
+      - mysqldb
+    build: ./api-support
+    container_name: node_app
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    environment:
+      - DB_HOST=mysqldb
+      - DB_USER=$MYSQLDB_USER
+      - DB_PASSWORD=$MYSQLDB_ROOT_PASSWORD
+      - DB_NAME=$MYSQLDB_DATABASE
+      - DB_PORT=$MYSQLDB_DOCKER_PORT
+    stdin_open: true
+    tty: true
