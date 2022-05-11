@@ -1,5 +1,4 @@
 version: '3'
-
 services:
   mysqldb:
     image: mysql:5.7
@@ -13,8 +12,6 @@ services:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:
       - db:/var/lib/mysql
-volumes:
-  db:
 
   node_app:
     depends_on:
@@ -33,3 +30,5 @@ volumes:
       - DB_PORT=$MYSQLDB_DOCKER_PORT
     stdin_open: true
     tty: true
+volumes: 
+  db:
