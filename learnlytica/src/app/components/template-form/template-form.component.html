@@ -1,0 +1,49 @@
+<div class="container">
+<h2>Template driven form </h2>
+<form #f="ngForm" novalidate>
+    <!-- {{f.value | json}} -->
+    <div class="form-group">
+        <pre>
+            valid? {{myFname.valid }}
+            invalid? {{myFname.invalid }}
+            dirty? {{myFname.dirty }}
+            pristine? {{myFname.pristine }}
+            touched? {{myFname.touched }}
+            untouched? {{myFname.untouched }}
+        </pre>
+        <label>First Name</label>
+        <input type="text" class="form-control" ngModel name="fname" #myFname="ngModel" required>
+        <div class="text-danger" *ngIf="myFname.touched && myFname.invalid">
+            * Please enter value
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <input name="lname" ngModel type="text" class="form-control" minlength="3" #mylname="ngModel">
+        <div class="text-danger" *ngIf="mylname.touched && mylname.invalid">
+            <p *ngIf="mylname?.errors?.['minlength']">Lastname must be at least 3 characters long</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input name="myEmail" ngModel type="email" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input name="passw" ngModel type="password" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Language</label>
+        <select name="my-langs" ngModel class="form-control">
+            <option value="">Please select a language</option>
+            <option *ngFor="let lang of listLangs" [value]="lang">
+                {{lang}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <button (click)="getFormsValue(f)">Submit</button>
+    </div>
+</form>
+</div>

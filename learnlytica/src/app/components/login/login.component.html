@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="border border-info m-2 p-3">
+        <h2>Login</h2>
+        {{myform.value | json}}
+        <form novalidate [formGroup]="myform">
+            <fieldset>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input formControlName="uname" type="text" class="form-control">
+                    <div *ngIf = "myform.controls['uname'].invalid && myform.controls['uname'].touched" class="text-primary">
+                        <b>* Enter username here</b>
+                    </div>
+                </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input formControlName="pwd" type="password" class="form-control">
+                <div class="text-danger" *ngIf="myform.controls['password'].touched 
+                       && myform.controls['password'].invalid">
+                <p *ngIf="myform.controls['password'].errors?.['required']"><b>Please Enter Password</b></p>
+                <p *ngIf="myform.controls['password'].errors?.['minlength']"><b>min length should 5 char</b></p>
+                <p *ngIf="myform.controls['password'].errors?.['maxlength']"><b>Min length should 6 char</b>
+                </p>
+            </div>
+            </div>
+            <div class="form-group m-5">
+                <input (click)="getValues()" type="button" value="Login" >
+            </div>
+       </fieldset> 
+        </form>
+    </div>
+    </div>
+    
+
+    
+    
+    

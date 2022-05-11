@@ -1,0 +1,25 @@
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <!--<a class="navbar-brand" href="#">Navbar</a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/home">Home</a>
+        <a class ="nav-item nav-link active" href="/login">Login</a>
+        <a class ="nav-item nav-link active" href="/registration">Registration</a>
+        <a class="nav-item nav-link active" href="/course">Course</a>
+        <a class="nav-item nav-link" href="/list-contact">Contact</a>
+        <a class="nav-item nav-link" href="/services">Services</a>
+        <a class="nav-link nav-link" href="/list-profiles">Profiles</a>
+        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" [routerLink]="['template-form']" role="tab"
+        aria-controls="pills-contact" aria-selected="false">Template Form</a>
+        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="/rxjs" role="tab"
+        aria-controls="pills-contact" aria-selected="false">RXJS</a>
+        <a class="nav-item nav-link">
+        <button mat-button (click)="openDialog()">LOGIN</button></a>
+      </div>
+    </div>
+  </nav>
+</div>

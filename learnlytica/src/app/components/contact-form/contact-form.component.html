@@ -1,0 +1,65 @@
+<div class="container">
+<div class="border border-info m-2 p-3">
+    <h2>Get in touch with us</h2>
+    {{myform.value | json}}
+    <!--<pre>Dirty? {{ myform.controls['fname'].dirty }}</pre>
+    <pre>pristine? {{ myform.controls['fname'].pristine }}</pre>
+    <pre>touched? {{ myform.controls['fname'].touched }}</pre>
+    <pre>untouched? {{ myform.controls['fname'].untouched }}</pre>
+    <pre>valid? {{ myform.controls['fname'].valid }}</pre>
+    <pre>invalid? {{ myform.controls['fname'].invalid }}</pre>-->
+    <form novalidate [formGroup]="myform">
+        <fieldset>
+            <div class="form-group">
+                <label>First Name</label>
+                <input formControlName="fname" type="text" class="form-control">
+                <div *ngIf = "myform.controls['fname'].invalid && myform.controls['fname'].touched" class="text-danger">
+                    <b>* Enter your name here</b>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input formControlName="lname" type="text" class="form-control">
+                <div *ngIf="myform.controls['lname'].touched 
+                && myform.controls['lname'].invalid" class="text-danger">
+                    <b>* Enter your Last Name here field</b>
+                    </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <label>Email</label>
+            <input formControlName="email_thbs" type="email" class="form-control">
+            <div class="text-danger" *ngIf="myform.controls['email_thbs'].touched 
+                       && myform.controls['email_thbs'].invalid">
+                <p *ngIf="myform.controls['email_thbs'].errors?.['required']"><b>Email is required</b></p>
+                <p *ngIf="myform.controls['email_thbs'].errors?.['email']"><b>Please enter valid Email Id</b></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input formControlName="password" type="password" class="form-control">
+            <div class="text-danger" *ngIf="myform.controls['password'].touched 
+                       && myform.controls['password'].invalid">
+                <p *ngIf="myform.controls['password'].errors?.['required']"><b>Please Enter Password</b></p>
+                <p *ngIf="myform.controls['password'].errors?.['minlength']"><b>min length should 5 char</b></p>
+                <p *ngIf="myform.controls['password'].errors?.['maxlength']"><b>Min length should 6 char</b>
+                </p>
+            </div>
+            </div>
+        <div class="form-group">
+            <label>Language</label>
+            <select formControlName="lang" class="form-control">
+                <option value="">Please select a language</option>
+                <option [value]="lang" *ngFor="let lang of langs">{{lang}}</option>
+            </select>
+        </div>
+
+        <div class="form-group m-5">
+            <button class="btn btn-primary" style='margin-right:16px' mat-button mat-dialog-close>Cancel</button>
+            <button class="btn btn-primary" (click)="getValues()">Submit</button>
+            <!-- <input (click)="getValues()" type="button" value="Submit" [disabled]="myform.invalid" > -->
+        </div>
+    </form>
+
+</div>
+</div>
