@@ -5,15 +5,13 @@ services:
     container_name: mysqldb
     restart: unless-stopped
     env_file: ./.env
-    environment
+    environment:
       - MYSQL_ROOT_PASSWORD=$MYSQLDB_ROOT_PASSWORD
       - MYSQL_DATABASE=$MYSQLDB_DATABASE
     ports:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:
       - db:/var/lib/mysql
-volumes:
-    db:
 
   node_app:
     depends_on:
@@ -32,3 +30,17 @@ volumes:
       - DB_PORT=$MYSQLDB_DOCKER_PORT
     stdin_open: true
     tty: true
+ # docker-compose up  #forebgroud 
+ #  docker-compose up -d #backgroud/detached mode
+  # angular_app:
+  #   depends_on:
+  #     - node_app
+  #   build: ./learnlytica #build image and then start container from img
+  #   container_name: angular_app
+  #   restart: unless-stopped
+  #   ports:
+  #     - 9090:4200
+  #   stdin_open: true #show up logs from container trobleshooting
+  #   tty: true
+volumes: 
+  db:
