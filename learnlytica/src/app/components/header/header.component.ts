@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.myDialog
-    .open(
+      .open(
         ContactFormComponent,
         {
           height: '500px',
@@ -31,5 +31,11 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  logout() {
+    sessionStorage.clear();
+    window.location.reload();
+  }
 
 }
+
+
