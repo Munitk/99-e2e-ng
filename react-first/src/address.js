@@ -1,7 +1,7 @@
 function Address(props) {
     let isLoggedIn = false;//true
     let address = (
-        <>
+        <p>
             <div>
                 <span><b>Torry Harris Business Solutions Pvt Ltd</b> Bengaluru, Karnataka 560037</span>
                 <br />
@@ -10,10 +10,11 @@ function Address(props) {
                 <span>I am inside address component</span>
                 <p>Office time: {props.time}</p>
             </div>
-        </>
+        </p>
+
     );
     if (isLoggedIn) {
-        return (<h1> I am loggIn </h1>);
+        return (<h1> I am loggIn </h1>)
     } else {
         return address;
     }
