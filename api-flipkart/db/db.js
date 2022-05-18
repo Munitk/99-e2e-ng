@@ -1,5 +1,5 @@
 const Connection = require('mysql/lib/Connection');
-var mysql = require('mysql2');
+var mysql = require('mysql');
 let learn = function () {
     var connection = mysql.createConnection({
         host: 'localhost',
