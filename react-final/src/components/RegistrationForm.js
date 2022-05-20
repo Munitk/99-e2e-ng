@@ -86,7 +86,7 @@ export default class FormComponent extends React.Component {
                 <h3>Registration Form</h3>
                 <form onSubmit={this.onSubmit} noValidate>
                     <div className="form-group">
-                        <label>Name</label>
+                        <label>Enter Your Name</label>
                         <input type="text" className="form-control" name="name"
                             onChange={this.formValChange} />
 
@@ -98,7 +98,7 @@ export default class FormComponent extends React.Component {
                     
                     <div class="col-md-6 mb-4">
 
-                        <h6 class="mb-2 pb-1">Gender: </h6>
+                        <h6 class="mb-2 pb-1">Choose Gender: </h6>
 
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
@@ -120,7 +120,7 @@ export default class FormComponent extends React.Component {
 
                     </div>
                     <div className="form-group">
-                        <label>Email</label>
+                        <label>Enter Your Email</label>
                         <input type="email" className="form-control" name="email"
                             onChange={this.formValChange} />
 
@@ -129,7 +129,7 @@ export default class FormComponent extends React.Component {
                         )}
                     </div>
                     <div className="form-group">
-                        <label>Password</label>
+                        <label>Enter Password</label>
                         <input type="text" className="form-control" name="password"
                             onChange={this.formValChange} />
 

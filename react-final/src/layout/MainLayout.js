@@ -19,6 +19,7 @@ export default class MainLayout extends React.Component {
                     <Route path="/hooks" element={<HooksPage />} />
                     <Route path="/reg" element={<RegistrationPage />} />
                     <Route path="/log" element={<LoginPage />} />
+                    
                 </Routes>
             </div>
         )

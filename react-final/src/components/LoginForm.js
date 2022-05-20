@@ -1,4 +1,6 @@
-import React from "react"
+import React from "react";
+import { Link } from "react-router-dom";
+
 
 export default class FormComponent extends React.Component {
     constructor(props) {
@@ -81,7 +83,7 @@ export default class FormComponent extends React.Component {
                     <h3>Login Form</h3>
 
                     <div className="form-group">
-                        <label>Email</label>
+                        <label>Enter Your Email</label>
                         <input type="email" className="form-control" name="email"
                             onChange={this.formValChange} />
 
@@ -90,7 +92,7 @@ export default class FormComponent extends React.Component {
                         )}
                     </div>
                     <div className="form-group">
-                        <label>Password</label>
+                        <label>Enter Your Password</label>
                         <input type="text" className="form-control" name="password"
                             onChange={this.formValChange} />
 
@@ -100,6 +102,12 @@ export default class FormComponent extends React.Component {
                     </div>
                     <br></br>
                     <button type="button" class="btn btn-primary">Login</button> <nbsp></nbsp>
+                    <p class="mb-5 pb-lg-2">
+                        Don't have an account?
+                        <button type="button" class="btn btn-sucess"><Link to="/reg">Register here!</Link>
+                        </button>
+
+                    </p>
 
                 </form>
             </>
